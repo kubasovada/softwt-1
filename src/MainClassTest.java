@@ -1,19 +1,16 @@
-import org.junit.Assert;
 import org.junit.Test;
 
+import static org.hamcrest.CoreMatchers.anyOf;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 public class MainClassTest {
-    MainClass localNumber = new MainClass();
-    @Test
-    public void testGetLocalNumber() {
-        int number = localNumber.getLocalNumber();
-        Assert.assertEquals("Value is not 14", 14, number);
-    }
+    MainClass localString = new MainClass();
 
     @Test
-    public void testGetClassNumber() {
-        int classNumber = localNumber.getClassNumber();
-        Assert.assertTrue("classNumber less 45 ("+classNumber + "), but must be > 45" , classNumber > 45);
-
-    }
+    public void getClassString() {
+        String result = localString.getClassString();
+        assertThat(result, anyOf(containsString("Hello"), containsString("hello")));
+      }
 
     }
